@@ -6,7 +6,7 @@ class Conta
     public string $titular;
     private float $saldo = 0;
 
-    public function sacar($valor)
+    public function sacar($valor): void
     {
         if ($this->saldo < $valor) {
             echo "Saldo insufuciente" . PHP_EOL;
@@ -15,7 +15,7 @@ class Conta
         }
     }
 
-    public function depositar($valor)
+    public function depositar($valor): void
     {
         if ($valor <= 0) {
             echo "O valor a depositar deve ser positivo!";
@@ -25,7 +25,7 @@ class Conta
         }
     }
 
-    public function visualizarSaldo()
+    public function visualizarSaldo(): string
     {
         return "Saldo: R$ " . $this->saldo . PHP_EOL;
     }
