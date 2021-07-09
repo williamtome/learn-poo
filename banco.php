@@ -9,3 +9,5 @@ echo $primeiraConta->visualizaDadosDoTitular();
 $segundaConta = new Conta('João das neves', '015.515.542-15');
 $segundaConta->deposita(300);
 echo $segundaConta->visualizaDadosDoTitular();
+
+echo Conta::mostrarTotalDeContas();
