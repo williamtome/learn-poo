@@ -2,8 +2,8 @@
 
 class Conta
 {
-    public string $cpfTitular;
-    public string $titular;
+    private string $cpfTitular;
+    private string $titular;
     private float $saldo = 0;
 
     public function sacar(float $valor): void
@@ -30,8 +30,8 @@ class Conta
 
     public function transferir(float $valorATransferir, Conta $conta)
     {
-        if ($valorATransferir < $this->saldo) {
-            echo "Saldo indisponível" . PHP_EOL;
+        if ($valorATransferir > $this->saldo) {
+            echo "Valor indisponível para transferência!" . PHP_EOL;
             return;
         }
 
@@ -45,8 +45,3 @@ class Conta
         return "Saldo: R$ " . $this->saldo . PHP_EOL;
     }
 }
-
-$conta = new Conta();
-$segundaConta = new Conta();
-$conta->transferir(100, $segundaConta);
-echo $conta->visualizarSaldo();
