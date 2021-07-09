@@ -40,7 +40,7 @@ class Conta
         $conta->deposita($valorATransferir);
     }
 
-    public function visualizaSaldo(): string
+    public function visualizaDadosDoTitular(): string
     {
         return "Saldo: R$ " . $this->saldo . PHP_EOL;
     }
