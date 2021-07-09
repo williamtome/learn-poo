@@ -49,6 +49,21 @@ class Conta
 
     public function visualizaDadosDoTitular(): string
     {
-        return "Saldo: R$ " . $this->saldo . PHP_EOL;
+        return "Titular: {$this->titular} CPF: {$this->cpfTitular} Saldo: R$ {$this->saldo}" . PHP_EOL;
+    }
+
+    private function validaNomeTitular(string $titular)
+    {
+        if (str_word_count($titular) == 0) {
+            echo "Informe o nome do titular." . PHP_EOL;
+            exit();
+        }
+
+        if (str_word_count($titular) == 1) {
+            echo "Informe o sobrenome do titular." . PHP_EOL;
+            exit();
+        }
+
+        $this->titular = $titular;
     }
 }
