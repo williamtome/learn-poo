@@ -25,6 +25,18 @@ class Conta
         }
     }
 
+    public function transferir(float $valorATransferir, Conta $conta)
+    {
+        if ($valorATransferir < $this->saldo) {
+            echo "Saldo indisponível" . PHP_EOL;
+            return;
+        }
+
+        $this->sacar($valorATransferir);
+
+        $conta->depositar($valorATransferir);
+    }
+
     public function visualizarSaldo(): string
     {
         return "Saldo: R$ " . $this->saldo . PHP_EOL;
@@ -32,5 +44,6 @@ class Conta
 }
 
 $conta = new Conta();
-$conta->depositar(100);
+$segundaConta = new Conta();
+$conta->transferir(100, $segundaConta);
 echo $conta->visualizarSaldo();
