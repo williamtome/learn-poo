@@ -6,7 +6,7 @@ class Conta
     private string $titular;
     private float $saldo = 0;
 
-    public function sacar(float $valor): void
+    public function saca(float $valor): void
     {
         if ($this->saldo < $valor) {
             echo "Saldo insufuciente" . PHP_EOL;
@@ -16,7 +16,7 @@ class Conta
         $this->saldo -= $valor;
     }
 
-    public function depositar(float $valor): void
+    public function deposita(float $valor): void
     {
         if ($valor <= 0) {
             echo "O valor a depositar deve ser positivo!";
@@ -28,19 +28,19 @@ class Conta
         echo "Depósito realizado com sucesso." . PHP_EOL;
     }
 
-    public function transferir(float $valorATransferir, Conta $conta)
+    public function transfere(float $valorATransferir, Conta $conta)
     {
         if ($valorATransferir > $this->saldo) {
             echo "Valor indisponível para transferência!" . PHP_EOL;
             return;
         }
 
-        $this->sacar($valorATransferir);
+        $this->saca($valorATransferir);
 
-        $conta->depositar($valorATransferir);
+        $conta->deposita($valorATransferir);
     }
 
-    public function visualizarSaldo(): string
+    public function visualizaSaldo(): string
     {
         return "Saldo: R$ " . $this->saldo . PHP_EOL;
     }
