@@ -15,6 +15,11 @@ class Conta
         self::$numeroDeContas++;
     }
 
+    public function __destruct()
+    {
+        self::$numeroDeContas--;
+    }
+
     public function saca(float $valor): void
     {
         if ($this->saldo < $valor) {
