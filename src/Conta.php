@@ -2,16 +2,15 @@
 
 class Conta
 {
-    private string $cpfTitular;
-    private string $titular;
+    private Titular $titular;
     private float $saldo;
     private static $numeroDeContas = 0;
 
-    public function __construct(string $titular, string $cpf)
+    public function __construct(Titular $titular)
     {
-        $this->validaNomeTitular($titular);
-        $this->cpfTitular = $cpf;
+        $this->titular = $titular;
         $this->saldo = 0;
+
         self::$numeroDeContas++;
     }
 
@@ -56,22 +55,7 @@ class Conta
 
     public function visualizaDadosDoTitular(): string
     {
-        return "Titular: {$this->titular} CPF: {$this->cpfTitular} Saldo: R$ {$this->saldo}" . PHP_EOL;
-    }
-
-    private function validaNomeTitular(string $titular)
-    {
-        if (str_word_count($titular) == 0) {
-            echo "Informe o nome do titular." . PHP_EOL;
-            exit();
-        }
-
-        if (str_word_count($titular) == 1) {
-            echo "Informe o sobrenome do titular." . PHP_EOL;
-            exit();
-        }
-
-        $this->titular = $titular;
+        return "Titular: {$this->titular->recuperaNome()} CPF: {$this->titular->recuperaCpf()} Saldo: R$ {$this->saldo}" . PHP_EOL;
     }
 
     public static function mostrarTotalDeContas(): int
