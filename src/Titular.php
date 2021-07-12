@@ -3,12 +3,14 @@
 class Titular
 {
     private Cpf $cpf;
+    private Endereco $endereco;
     private string $nome;
 
-    public function __construct(string $nome, Cpf $cpf)
+    public function __construct(string $nome, Cpf $cpf, Endereco $endereco)
     {
         $this->validaNomeTitular($nome);
         $this->cpf = $cpf;
+        $this->endereco = $endereco;
     }
 
     public function recuperaNome(): string
@@ -34,5 +36,10 @@ class Titular
         }
 
         $this->nome = $nome;
+    }
+
+    public function recuperaEndereco(): Endereco
+    {
+        return $this->endereco;
     }
 }
