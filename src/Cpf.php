@@ -23,6 +23,4 @@ class Cpf
 
         $this->numero = $numero;
     }
-
-
 }
