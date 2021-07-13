@@ -1,11 +1,9 @@
 <?php
 
-require_once 'src/Conta.php';
-require_once 'src/PessoaFisica.php';
-require_once 'src/Titular.php';
-require_once 'src/Cpf.php';
-require_once 'src/Endereco.php';
-require_once 'src/Funcionario.php';
+require_once 'autoload.php';
+
+use Alura\Banco\Modelo\Conta\{Conta, Titular};
+use Alura\Banco\Modelo\{Cpf, Endereco, Funcionario};
 
 $endereco = new Endereco('Clóvis Beviláqua', '945', 'um bairro', 'Canoas');
 $funcionario = new Funcionario('William Tomé', new Cpf('123.456.789-10'), 'Desenvolvedor Back-end');
