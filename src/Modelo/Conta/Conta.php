@@ -8,6 +8,8 @@ class Conta
     private float $saldo;
     private static $numeroDeContas = 0;
 
+    private const TARIFA_SAQUE = 0.05;
+
     public function __construct(Titular $titular)
     {
         $this->titular = $titular;
@@ -23,12 +25,15 @@ class Conta
 
     public function saca(float $valor): void
     {
-        if ($this->saldo < $valor) {
+        $tarifaSaque = $valor * self::TARIFA_SAQUE;
+        $valorSaque = $valor + $tarifaSaque;
+
+        if ($this->saldo < $valorSaque) {
             echo "Saldo insufuciente" . PHP_EOL;
             return;
         }
 
-        $this->saldo -= $valor;
+        $this->saldo -= $valorSaque;
     }
 
     public function deposita(float $valor): void
