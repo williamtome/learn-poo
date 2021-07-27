@@ -4,8 +4,6 @@ namespace Alura\Banco\Modelo\Conta;
 
 class ContaPoupanca extends Conta
 {
-    private const TARIFA_SAQUE_POUPANCA = 0.03;
-
     public function __construct(Titular $titular)
     {
         parent::__construct($titular);
@@ -13,7 +11,7 @@ class ContaPoupanca extends Conta
 
     public function saca(float $valor): void
     {
-        $tarifaSaque = $valor * self::TARIFA_SAQUE_POUPANCA;
+        $tarifaSaque = $valor * $this->percentualTarifa();
         $valorSaque = $valor + $tarifaSaque;
 
         if ($this->saldo < $valorSaque) {
@@ -22,5 +20,10 @@ class ContaPoupanca extends Conta
         }
 
         $this->saldo -= $valorSaque;
+    }
+
+    protected function percentualTarifa(): float
+    {
+        return 0.03;
     }
 }
