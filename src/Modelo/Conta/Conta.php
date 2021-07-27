@@ -60,7 +60,7 @@ abstract class Conta
 
     public function visualizaDadosDoTitular(): string
     {
-        return "Titular: {$this->titular->recuperaNome()} CPF: {$this->titular->recuperaCpf()} Saldo: R$ {$this->saldo}" . PHP_EOL;
+        return "Titular: {$this->titular->recuperaNome()} CPF: {$this->titular->recuperaCpf()} Saldo: R$ $this->saldo" . PHP_EOL;
     }
 
     public static function mostrarTotalDeContas(): int
