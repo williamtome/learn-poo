@@ -3,8 +3,7 @@
 require_once 'autoload.php';
 
 use Alura\Banco\Modelo\Conta\{ContaCorrente, ContaPoupanca, ContaSalario, Titular};
-use Alura\Banco\Modelo\Cpf;
-use Alura\Banco\Modelo\Endereco;
+use Alura\Banco\Modelo\{Cpf, Endereco};
 
 $conta = new ContaCorrente(
     new Titular(
