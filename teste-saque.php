@@ -4,6 +4,7 @@ require_once 'autoload.php';
 
 use Alura\Banco\Modelo\Conta\ContaCorrente;
 use Alura\Banco\Modelo\Conta\ContaPoupanca;
+use Alura\Banco\Modelo\Conta\ContaSalario;
 use Alura\Banco\Modelo\Conta\Titular;
 use Alura\Banco\Modelo\Cpf;
 use Alura\Banco\Modelo\Endereco;
@@ -24,6 +25,14 @@ $contaPoupanca = new ContaPoupanca(
     )
 );
 
+$contaSalario = new ContaSalario(
+    new Titular(
+        'Alefe M.',
+        new Cpf('987.654.321-01'),
+        new Endereco('rua Lá', '100', 'Ilha', 'POA')
+    )
+);
+
 $conta->deposita(500);
 echo $conta->visualizaDadosDoTitular();
 $conta->saca(100);
@@ -33,3 +42,8 @@ $contaPoupanca->deposita(300);
 echo $contaPoupanca->visualizaDadosDoTitular();
 $contaPoupanca->saca(100);
 echo $contaPoupanca->visualizaDadosDoTitular();
+
+$contaSalario->deposita(200);
+echo $contaSalario->visualizaDadosDoTitular();
+$contaSalario->saca(50);
+echo $contaSalario->visualizaDadosDoTitular();
