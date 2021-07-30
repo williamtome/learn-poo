@@ -9,4 +9,14 @@ class Desenvolvedor extends Funcionario
         $valorDeAumento = $this->recuperaSalario() * 0.75;
         $this->recebeAumento($valorDeAumento);
     }
+
+    public function calculaBonificacao(): float
+    {
+        return 500.0;
+    }
+
+    public function adicionaValeRefeicao(): float
+    {
+        return 400;
+    }
 }

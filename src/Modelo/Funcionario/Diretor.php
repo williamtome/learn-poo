@@ -13,4 +13,9 @@ class Diretor extends Funcionario
     {
         return $senha === '1234';
     }
+
+    public function adicionaValeRefeicao(): float
+    {
+        return 400;
+    }
 }

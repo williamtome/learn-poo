@@ -8,4 +8,9 @@ class Gerente extends Funcionario
     {
         return $this->recuperaSalario();
     }
+
+    public function adicionaValeRefeicao(): float
+    {
+        return 400;
+    }
 }
