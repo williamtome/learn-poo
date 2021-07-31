@@ -2,7 +2,9 @@
 
 namespace Alura\Banco\Modelo\Funcionario;
 
-class Gerente extends Funcionario
+use Alura\Banco\Contrato\AutenticavelInterface;
+
+class Gerente extends Funcionario implements AutenticavelInterface
 {
     public function calculaBonificacao(): float
     {
