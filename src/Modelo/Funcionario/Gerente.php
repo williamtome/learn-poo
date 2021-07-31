@@ -15,4 +15,9 @@ class Gerente extends Funcionario implements AutenticavelInterface
     {
         return 400;
     }
+
+    public function podeAutenticar(string $senha): bool
+    {
+        return $senha === '4321';
+    }
 }
