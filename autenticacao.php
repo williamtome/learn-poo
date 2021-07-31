@@ -2,8 +2,9 @@
 
 require_once 'autoload.php';
 
-use Alura\Banco\Modelo\Cpf;
-use Alura\Banco\Modelo\Funcionario\Diretor;
+use Alura\Banco\Modelo\Conta\Titular;
+use Alura\Banco\Modelo\{Cpf, Endereco};
+use Alura\Banco\Modelo\Funcionario\{Diretor, Gerente};
 use Alura\Banco\Servico\Autenticador;
 
 $umDiretor = new Diretor(
