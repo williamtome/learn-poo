@@ -19,4 +19,9 @@ class Titular extends PessoaFisica implements AutenticavelInterface
     {
         return $this->endereco;
     }
+
+    public function podeAutenticar(string $senha): bool
+    {
+        return $senha === 'abcd';
+    }
 }
