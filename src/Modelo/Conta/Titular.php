@@ -2,11 +2,10 @@
 
 namespace Alura\Banco\Modelo\Conta;
 
-use Alura\Banco\Modelo\PessoaFisica;
-use Alura\Banco\Modelo\Endereco;
-use Alura\Banco\Modelo\Cpf;
+use Alura\Banco\Contrato\AutenticavelInterface;
+use Alura\Banco\Modelo\{PessoaFisica, Endereco, Cpf};
 
-class Titular extends PessoaFisica
+class Titular extends PessoaFisica implements AutenticavelInterface
 {
     private Endereco $endereco;
 
