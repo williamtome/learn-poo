@@ -49,4 +49,10 @@ class Endereco
     {
         return "$this->rua, $this->numero, $this->bairro - $this->cidade." . PHP_EOL;
     }
+
+    public function __get(string $nomeAtributo)
+    {
+        $metodo = 'recupera' . ucfirst($nomeAtributo);
+        return $this->$metodo() . PHP_EOL;
+    }
 }
