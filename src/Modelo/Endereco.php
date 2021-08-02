@@ -55,4 +55,9 @@ class Endereco
         $metodo = 'recupera' . ucfirst($nomeAtributo);
         return $this->$metodo() . PHP_EOL;
     }
+
+    public function __set(string $nomeAtributo, $valor)
+    {
+        $this->$nomeAtributo = $valor;
+    }
 }
