@@ -39,6 +39,6 @@ class Endereco
 
     public function __toString(): string
     {
-        return "$this->rua, $this->numero, $this->bairro - $this->cidade.";
+        return "$this->rua, $this->numero, $this->bairro - $this->cidade." . PHP_EOL;
     }
 }
