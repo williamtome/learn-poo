@@ -7,21 +7,25 @@ function funcao1()
     try {
         funcao2();
         echo 'Saindo da função 1' . PHP_EOL;
-    } catch (DivisionByZeroError | RuntimeException $ex) {
-        echo $ex->getMessage() . PHP_EOL;
-        echo 'Aconteceu um erro na função 2: ' . $ex->getMessage() . PHP_EOL;
+    } catch (Exception $excessao) {
+        echo $excessao->getMessage() . PHP_EOL;
+        echo 'Aconteceu um erro na função 2: ' . $excessao->getMessage() . PHP_EOL;
+        echo 'na linha: ' . $excessao->getLine() . PHP_EOL;
+        echo 'Trilha: ' . $excessao->getTraceAsString() . PHP_EOL;
+    } catch (Error $error) {
+        echo $error->getMessage() . PHP_EOL;
+        echo $error->getLine() . PHP_EOL;
+        echo $error->getTraceAsString() . PHP_EOL;
     }
 }
 
 function funcao2()
 {
     echo 'Entrei na função 2' . PHP_EOL;
-    $divisao = intdiv(5, 0);
-    $arrayFixo = new SplFixedArray(2);
-    $arrayFixo[3] = 'Valoe';
-    for ($i = 1; $i <= 5; $i++) {
-        echo $i . PHP_EOL;
-    }
+
+    $divisao = intdiv(5,0);
+    throw new RuntimeException('Essa é a mensagem de excessao.');
+
     echo 'Saindo da função 2' . PHP_EOL;
 }
 
