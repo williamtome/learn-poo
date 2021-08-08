@@ -27,8 +27,7 @@ abstract class Conta
         $valorSaque = $valor + $tarifaSaque;
 
         if ($this->saldo < $valorSaque) {
-            echo "Saldo insufuciente" . PHP_EOL;
-            return;
+            throw new SaldoInsuficienteException($valorSaque, $this->saldo);
         }
 
         $this->saldo -= $valorSaque;
