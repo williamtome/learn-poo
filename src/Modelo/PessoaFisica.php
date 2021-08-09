@@ -28,13 +28,11 @@ abstract class PessoaFisica
     protected function validaNomeTitular(string $nome)
     {
         if (str_word_count($nome) == 0) {
-            echo "Informe o nome do titular." . PHP_EOL;
-            exit();
+            throw new \UnexpectedValueException('Nome do titular é obrigatório.');
         }
 
         if (str_word_count($nome) == 1) {
-            echo "Informe o sobrenome do titular." . PHP_EOL;
-            exit();
+            throw new NomeCurtoException();
         }
 
         $this->nome = $nome;
