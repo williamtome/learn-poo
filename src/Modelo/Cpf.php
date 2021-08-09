@@ -19,8 +19,7 @@ final class Cpf
     private function validaCpf(string $numero): void
     {
         if (strlen($numero) < 11) {
-            echo "CPF incorreto.";
-            exit();
+            throw new \InvalidArgumentException('CPF inválido.');
         }
 
         $this->numero = $numero;
