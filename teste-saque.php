@@ -6,6 +6,7 @@ use Alura\Banco\Modelo\Conta\{
     ContaCorrente,
     ContaPoupanca,
     ContaSalario,
+    SaldoInsuficienteException,
     Titular
 };
 use Alura\Banco\Modelo\{Cpf, Endereco};
@@ -36,15 +37,20 @@ $contaSalario = new ContaSalario(
 
 $conta->deposita(500);
 echo $conta->visualizaDadosDoTitular();
-$conta->saca(100);
-echo $conta->visualizaDadosDoTitular();
+try {
+    $conta->saca(600);
+} catch (SaldoInsuficienteException $exception) {
+    echo "Você não tem saldo para realizar este saque." . PHP_EOL;
+    echo $exception->getMessage() . PHP_EOL;
+}
+//echo $conta->visualizaDadosDoTitular();
 
-$contaPoupanca->deposita(300);
-echo $contaPoupanca->visualizaDadosDoTitular();
-$contaPoupanca->saca(100);
-echo $contaPoupanca->visualizaDadosDoTitular();
-
-$contaSalario->deposita(200);
-echo $contaSalario->visualizaDadosDoTitular();
-$contaSalario->saca(50);
-echo $contaSalario->visualizaDadosDoTitular();
+//$contaPoupanca->deposita(-300);
+//echo $contaPoupanca->visualizaDadosDoTitular();
+//$contaPoupanca->saca(100);
+//echo $contaPoupanca->visualizaDadosDoTitular();
+//
+//$contaSalario->deposita(200);
+//echo $contaSalario->visualizaDadosDoTitular();
+//$contaSalario->saca(50);
+//echo $contaSalario->visualizaDadosDoTitular();
